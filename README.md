@@ -2,7 +2,7 @@
 Ans.The List component is a simple list that displays a collection of items provided through its items prop. Each item in the list is rendered as a SingleListItem component, which is a clickable list item with a text label. When a SingleListItem is clicked, it changes its background color to green and sets its isSelected prop to true. The List component keeps track of the currently selected index by storing it in its own state, and resets this state whenever the items prop changes.
 
 # What problems / warnings are there with code?
-Ans.<ol><li>In the SingleListItem component, the onClick handler is not wrapped in a function, which means it will be called immediately on render instead of waiting for a click event. It should be changed to <tt>onClick={() => onClickHandler(index)}.</tt></li>
+Ans.<ol><li>In the SingleListItem component, the onClick handler is not wrapped in a function, which means it will be called immediately on render instead of waiting for a click event. It should be changed to <tt>onClick={() => onClickHandler(index)}</tt>.</li>
 <li>In the SingleListItem component, the isSelected prop is passed as a truthy value, but it should be a boolean. It should be changed to isSelected={selectedIndex === index}.</li>
 <li>In the WrappedListComponent propTypes definition, the array propType is not used correctly. It should be changed to PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string.isRequired })).</li>
 <li>In the WrappedListComponent defaultProps definition, the items prop should be an empty array instead of null, as the map function would throw an error if it was passed a null value.</li></ol>
